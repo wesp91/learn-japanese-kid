@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using R3;
+using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class HiraganaDrawerCanvasView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Inject] private IStateController _stateController;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private TextMeshProUGUI _drawerText;
+
+    private void Start()
     {
-        
+        _stateController
+            .OnSelectedHiraganaChanged
+            .Subscribe(hiragana => _drawerText.text = hiragana.ToString())
+            .AddTo(this);    
     }
 }
