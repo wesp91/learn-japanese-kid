@@ -64,6 +64,8 @@ public class HiraganaButton : MonoBehaviour
                         break;
                 }
             }
+
+            _sprite.GetComponent<RectTransform>().sizeDelta = new Vector2(_gifFrames[0].width, _gifFrames[0].height) * 1.2f;
         }
 
         Observable

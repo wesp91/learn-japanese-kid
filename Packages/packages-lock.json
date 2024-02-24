@@ -16,6 +16,13 @@
       "dependencies": {},
       "hash": "75f68222d0a4bd2b468dbf3e6a17a191d28041ab"
     },
+    "com.nobi.roundedcorners": {
+      "version": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "88623988179d35ce2da93b7740d6e7be59fcc971"
+    },
     "com.unity.2d.animation": {
       "version": "10.1.0",
       "depth": 1,

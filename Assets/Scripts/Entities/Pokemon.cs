@@ -1,5 +1,9 @@
 
 public enum Pokemon 
 {
-    Arbok
+    Arbok,
+    Eevee,
+    Arcanine,
+    Electabuzz,
+    Omastar
 }
