@@ -1,9 +1,26 @@
 
 public enum Pokemon 
 {
-    Arbok,
-    Eevee,
-    Arcanine,
-    Electabuzz,
-    Omastar
+    Caterpie = 10,
+    Arbok = 24,
+    Nidoking = 34,
+    Gloom = 44,
+    Arcanine = 59,
+    Abra = 63,
+    Magnemite = 81,
+    Hitmonlee = 108,
+    Starmie = 121,
+    Exeggcute = 102,
+    Exeggutor = 103,
+    Goldeen = 118,
+    Electabuzz = 125,
+    Eevee = 133,
+    Vaporeon = 134,
+    Omastar = 139,
+    Dragonite = 149,
+    Chikorita = 152,
+    Wobbuffet = 202,
+    Shuckle = 213,
+    Celebi = 251,
+    Braixen = 654,
 }
