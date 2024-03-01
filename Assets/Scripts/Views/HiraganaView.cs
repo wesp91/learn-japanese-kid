@@ -2,7 +2,7 @@ using R3;
 using UnityEngine;
 using Zenject;
 
-public class MainMenuView : MonoBehaviour
+public class HiraganaManuView : MonoBehaviour
 {
     [Inject] private IStateController _stateController;
 
@@ -12,7 +12,7 @@ public class MainMenuView : MonoBehaviour
     {
         _stateController
             .OnGameStateChanged
-            .Select(state => state == GameState.MainMenu)
+            .Select(state => state == GameState.HiraganaMenu)
             .Subscribe(isMainMenu => 
             {
                 _mainMenu.enabled = isMainMenu;

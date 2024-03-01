@@ -18,6 +18,7 @@ public class StateModel : IStateModel
     public ReactiveProperty<GameState> _currentState = new ReactiveProperty<GameState>(GameState.MainMenu);
     public ReactiveProperty<HiraganaEnum> _currentHiragana = new ReactiveProperty<HiraganaEnum>();
 
+
     #region Actions
     public void SetState(GameState value)
     {

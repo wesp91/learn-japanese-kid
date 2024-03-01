@@ -10,7 +10,7 @@ public class HiraganaTrainingView : MonoBehaviour
 
     [SerializeField] private Canvas _mainCanvas;
     [SerializeField] private GameObject _drawer;
-    [SerializeField] private Button _backToManuButton;
+    [SerializeField] private Button _backToMainButton;
 
     private void Start()
     {
@@ -24,9 +24,9 @@ public class HiraganaTrainingView : MonoBehaviour
             })
             .AddTo(this);
 
-        _backToManuButton
+        _backToMainButton
             .OnClickAsObservable()
-            .Subscribe(_ => _stateController.SetGameState(GameState.MainMenu))
+            .Subscribe(_ => _stateController.SetGameState(GameState.HiraganaMenu))
             .AddTo(this);
     }
 }
