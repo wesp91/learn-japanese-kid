@@ -15,6 +15,7 @@ public class HiraganaButton : MonoBehaviour
     [SerializeField] private RawImage _sprite;
     [SerializeField] private Pokemon _pokemon;
 
+
     private List<Texture> _gifFrames = new List<Texture>();
     private List<float> _frameDelays = new List<float>();
     private int _currentFrame = 0;
@@ -27,7 +28,8 @@ public class HiraganaButton : MonoBehaviour
         gameObject.name = $"Button - {_text.text}";
 
         string path = Path.Combine(Application.streamingAssetsPath, $"{(int)_pokemon}_{_pokemon.ToString().ToLower()}.gif");
-        //Debug.Log(path);
+        
+        _sprite.GetComponent<RectTransform>().anchoredPosition += PokemonHelper.GetOffset(_pokemon);
 
         LoadGif(path);
     }

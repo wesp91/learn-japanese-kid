@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public enum Pokemon 
 {
@@ -50,4 +51,29 @@ public enum Pokemon
 
     Unown_A = 1001,
     Unown_Interrogation = 1028,
+}
+
+
+public static class PokemonHelper
+{
+    public static Vector2 GetOffset(Pokemon pokemon)
+    {
+        switch(pokemon)
+        {
+            case Pokemon.Charizard:
+                return new Vector2(-10,-10);
+            case Pokemon.Arcanine:
+                return new Vector2(6,0);
+            case Pokemon.Dragonite:
+                return new Vector2(0,-10);
+            case Pokemon.Caterpie:
+                return new Vector2(10,5);
+            case Pokemon.Magnemite:
+                return new Vector2(10,15);
+            case Pokemon.Hitmonlee:
+                return new Vector2(10,0);
+            default:
+                return Vector2.zero;
+        }
+    }
 }
