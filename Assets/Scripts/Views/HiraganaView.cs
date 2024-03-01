@@ -1,5 +1,6 @@
 using R3;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class HiraganaManuView : MonoBehaviour
@@ -7,6 +8,7 @@ public class HiraganaManuView : MonoBehaviour
     [Inject] private IStateController _stateController;
 
     [SerializeField] private Canvas _mainMenu;
+    [SerializeField] private Button _homeButton;
 
     private void Start()
     {
@@ -17,6 +19,11 @@ public class HiraganaManuView : MonoBehaviour
             {
                 _mainMenu.enabled = isMainMenu;
             })
+            .AddTo(this);
+
+        _homeButton
+            .OnClickAsObservable()
+            .Subscribe(_ => _stateController.SetGameState(GameState.MainMenu))
             .AddTo(this);
     }
 }
