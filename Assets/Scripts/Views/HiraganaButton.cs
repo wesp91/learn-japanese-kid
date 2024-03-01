@@ -26,7 +26,7 @@ public class HiraganaButton : MonoBehaviour
 
         gameObject.name = $"Button - {_text.text}";
 
-        string path = Path.Combine(Application.streamingAssetsPath, $"{_pokemon.ToString().ToLower()}.gif");
+        string path = Path.Combine(Application.streamingAssetsPath, $"{(int)_pokemon}_{_pokemon.ToString().ToLower()}.gif");
         //Debug.Log(path);
 
         LoadGif(path);
