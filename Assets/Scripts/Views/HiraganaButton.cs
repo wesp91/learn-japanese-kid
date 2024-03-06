@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using R3;
-using ThreeDISevenZeroR.UnityGifDecoder;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 
 public class HiraganaButton : MonoBehaviour
 {
+    [Inject] private PokemonSpriteContainer _pokemonSpriteContainer;
     [SerializeField] private Button _button;
     [SerializeField] private HiraganaEnum _letter;
     [SerializeField] private TextMeshProUGUI _text;
@@ -16,75 +16,42 @@ public class HiraganaButton : MonoBehaviour
     [SerializeField] private Pokemon _pokemon;
 
 
-    private List<Texture> _gifFrames = new List<Texture>();
-    private List<float> _frameDelays = new List<float>();
+    private SpriteContainer _gif;
     private int _currentFrame = 0;
     private float _gifTime = 0.0f;
+    private RectTransform _rect;
 
     private void Start()
     {
+        _rect = _sprite.GetComponent<RectTransform>();
+        
         _text.text = _letter.ToString();
-
         gameObject.name = $"Button - {_text.text}";
 
-        string path = Path.Combine(Application.streamingAssetsPath, $"{(int)_pokemon}_{_pokemon.ToString().ToLower()}.gif");
+        _gif = _pokemonSpriteContainer.Gifs.Where(x => x.PokemonName == _pokemon).FirstOrDefault();
+
         
-        _sprite.GetComponent<RectTransform>().anchoredPosition += PokemonHelper.GetOffset(_pokemon);
-
-        LoadGif(path);
-    }
-
-    private void LoadGif(string gifPath)
-    {
-        using (var gifStream = new GifStream(gifPath))
+        if(_rect != null && _gif != null && _gif.Sprites != null && _gif.Sprites.Count > 0)
         {
-            while (gifStream.HasMoreData)
-            {
-                switch (gifStream.CurrentToken)
+            _rect.anchoredPosition += PokemonHelper.GetOffset(_pokemon);
+            _rect.sizeDelta = new Vector2(_gif.Sprites[0].width, _gif.Sprites[0].height) * 1.2f;
+
+            Observable
+                .EveryUpdate()
+                .Subscribe(_ =>
                 {
-                    case GifStream.Token.Image:
-                        var image = gifStream.ReadImage();
-                        var frame = new Texture2D(
-                            gifStream.Header.width, 
-                            gifStream.Header.height, 
-                            TextureFormat.ARGB32, false); 
+                    _gifTime += Time.deltaTime;
 
-                        frame.SetPixels32(image.colors);
-                        frame.Apply();
+                    if(_gifTime >= _gif.FrameDelay)
+                    {
+                        _currentFrame = ( _currentFrame + 1 ) % _gif.Sprites.Count;
+                        _gifTime = 0.0f;
 
-                        _gifFrames.Add(frame);
-                        _frameDelays.Add(image.SafeDelaySeconds); // More about SafeDelay below
-                        break;
-                    
-                    case GifStream.Token.Comment:
-                        var commentText = gifStream.ReadComment();
-                        Debug.Log(commentText);
-                        break;
-
-                    default:
-                        gifStream.SkipToken(); // Other tokens
-                        break;
-                }
-            }
-
-            _sprite.GetComponent<RectTransform>().sizeDelta = new Vector2(_gifFrames[0].width, _gifFrames[0].height) * 1.2f;
+                        _sprite.texture = _gif.Sprites[_currentFrame];
+                    }
+                })
+                .AddTo(this);
         }
-
-        Observable
-            .EveryUpdate()
-            .Subscribe(_ =>
-            {
-                _gifTime += Time.deltaTime;
-
-                if( _gifTime >= _frameDelays[ _currentFrame ] )
-                {
-                    _currentFrame = ( _currentFrame + 1 ) % _gifFrames.Count;
-                    _gifTime = 0.0f;
-
-                    _sprite.texture = _gifFrames[_currentFrame];
-                }
-            })
-            .AddTo(this);
     }
 
     public Observable<HiraganaEnum> OnClick => _button.OnClickAsObservable().Select(_ => _letter);

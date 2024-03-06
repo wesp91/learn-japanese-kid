@@ -1,11 +1,21 @@
 # ninja log v5
 111	2529	7298622445559639	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dd78889afc3c3ab
+31	6640	7298622499034530	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	58c74aea91a4ac53
 43	4900	7298622479767045	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ab9c044f7ed937d6
 2	5299	7298622480976613	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dbc69899155eb4fe
+20	5846	7298622490124440	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a33d8e0f06b2f682
 71	5385	7298622486230624	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	66ec5bb866d07c0b
 98	5832	7298622488348622	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1aafa112cef3a458
 2532	5833	7298622476317541	C:/dev/learn-japanese-kid/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/w1u386i3/obj/arm64-v8a/libswappywrapper.so	4b126129d14d6dff
-20	5846	7298622490124440	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a33d8e0f06b2f682
 57	6373	7298622496392400	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	811a67350bfc3e1
-31	6640	7298622499034530	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	58c74aea91a4ac53
 6640	6954	7298622501292174	C:/dev/learn-japanese-kid/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/w1u386i3/obj/arm64-v8a/libgame.so	91eefad287824a55
+68	360	7310403047939044	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dd78889afc3c3ab
+361	819	7310403051737196	C:/dev/learn-japanese-kid/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/w1u386i3/obj/arm64-v8a/libswappywrapper.so	4b126129d14d6dff
+57	1536	7310403059613349	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ab9c044f7ed937d6
+49	1605	7310403060346223	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	66ec5bb866d07c0b
+21	1624	7310403060479943	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dbc69899155eb4fe
+42	1697	7310403061266920	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1aafa112cef3a458
+36	1764	7310403061975002	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a33d8e0f06b2f682
+29	2009	7310403064466803	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	811a67350bfc3e1
+13	2075	7310403065049938	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	58c74aea91a4ac53
+2075	2390	7310403066953733	C:/dev/learn-japanese-kid/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/w1u386i3/obj/arm64-v8a/libgame.so	91eefad287824a55

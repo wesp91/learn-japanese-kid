@@ -44,6 +44,7 @@ public enum Pokemon
     Nosepass = 299,
     Wailmer = 320,
     Duskull = 355,
+    Metagross = 379,
     Rayquaza = 384,
     Braixen = 654,
     Coalossal = 839,
