@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Gif", menuName = "ScriptableObjects/PokemonSpriteContainer", order = 1)]
@@ -10,15 +12,18 @@ public class PokemonSpriteContainer : ScriptableObject
 {
     public List<SpriteContainer> Gifs = new();
     
+    #if UNITY_EDITOR
     [EditorCools.Button(name: "Load sprites")]
     private void LoadSprites() => LoadSprites(Gifs);   
-     
+    #endif
 
     public void OnValidate()
     {
         Gifs = Gifs.OrderBy(x => x.PokemonName).ToList();
     }
 
+
+    #if UNITY_EDITOR
     private void LoadSprites(List<SpriteContainer> elements)
     {
         foreach(SpriteContainer c in elements)
@@ -45,9 +50,10 @@ public class PokemonSpriteContainer : ScriptableObject
             else
             {
                 Debug.LogError("JSON file not found at path: " + optionFilePath);
-            }
+            }   
         }
     }
+    #endif
 }
 
 [Serializable]
