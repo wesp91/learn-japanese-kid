@@ -25,12 +25,26 @@ public class PokemonSpriteContainer : ScriptableObject
         {
             string folderPath = $"Assets/Textures/PokemonGifs/{(int)c.PokemonName}_{c.PokemonName.ToString().ToLower()}";
             
+            // load sprites
             string[] files = Directory.GetFiles(folderPath, "*.gif", SearchOption.TopDirectoryOnly);
             c.Sprites.Clear();
             foreach (var file in files)
             {
                 Texture2D sprite = AssetDatabase.LoadAssetAtPath<Texture2D>(file);
                 c.Sprites.Add(sprite);
+            }
+
+            // load options
+            string optionFilePath = $"{folderPath}/options.json";
+            if (File.Exists(optionFilePath))
+            {
+                string jsonContent = File.ReadAllText(optionFilePath);
+                SpriteOptions options = JsonUtility.FromJson<SpriteOptions>(jsonContent);
+                c.FrameDelay = options.FrameDelay;
+            }
+            else
+            {
+                Debug.LogError("JSON file not found at path: " + optionFilePath);
             }
         }
     }
@@ -42,4 +56,18 @@ public class SpriteContainer
     public Pokemon PokemonName;
     public List<Texture> Sprites = new();
     public float FrameDelay = 0f;
-} 
+}
+
+[Serializable]
+public class SpriteOptions
+{
+    [SerializeField]
+    private float frame_delay;
+
+
+    public float FrameDelay 
+    { 
+        get { return frame_delay; } 
+        private set { frame_delay = value ; } 
+        }
+}
