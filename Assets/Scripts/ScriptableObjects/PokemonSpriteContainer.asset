@@ -75,7 +75,57 @@ MonoBehaviour:
     - {fileID: 2800000, guid: 4243b150ce7f1f84da940848a7231ad7, type: 3}
     - {fileID: 2800000, guid: ddbe8a7e50a554b429bcebe56d51a457, type: 3}
     FrameDelay: 0.03
-  - PokemonName: 379
+  - PokemonName: 9
+    Sprites:
+    - {fileID: 2800000, guid: 7d2733008af125542b6f04268f08e5da, type: 3}
+    - {fileID: 2800000, guid: 9404fb82bf9269f46bb9c8459a812bf4, type: 3}
+    - {fileID: 2800000, guid: d7303c236c379c0418ac1c438dc4c183, type: 3}
+    - {fileID: 2800000, guid: cc004fc40f634e54f8e701016878e749, type: 3}
+    - {fileID: 2800000, guid: a056bf9a67c52fa44a0d2f940056a311, type: 3}
+    - {fileID: 2800000, guid: 3aeb46742d3072644b67da5cc930c5ef, type: 3}
+    - {fileID: 2800000, guid: 45dd9c15a0886a64e9e14526921f8245, type: 3}
+    - {fileID: 2800000, guid: 3b8e2a99d6d687540806222ee14e9f18, type: 3}
+    - {fileID: 2800000, guid: 6e32ab4218162fa4cba0db0a747cad2f, type: 3}
+    - {fileID: 2800000, guid: 65bc1e6d294305948a96a66776d8935a, type: 3}
+    - {fileID: 2800000, guid: 91c714dac19bf9f4986ee85f16207a99, type: 3}
+    - {fileID: 2800000, guid: f96817da529efe6439e8f75584a147d2, type: 3}
+    - {fileID: 2800000, guid: 0000a789039cd8746958f22a35b9f8c3, type: 3}
+    - {fileID: 2800000, guid: 188354f46fe1fad4ba6bf16935cf4d49, type: 3}
+    - {fileID: 2800000, guid: d39e01f65b1e905459b8f9fe677eabaa, type: 3}
+    - {fileID: 2800000, guid: f194ca8d7953168458c2976928a3485f, type: 3}
+    - {fileID: 2800000, guid: b9858bcd7deba564e81071abddb4235f, type: 3}
+    - {fileID: 2800000, guid: 35ced8a47f4f1014286425631188d861, type: 3}
+    - {fileID: 2800000, guid: b11ac932b2bfca84582993e2ec50cde4, type: 3}
+    - {fileID: 2800000, guid: 593ed85de83090049a5683865cab76da, type: 3}
+    - {fileID: 2800000, guid: d61b7ae8ee54d33449890236fae4d6dd, type: 3}
+    - {fileID: 2800000, guid: 45651d1d9203b09439992f02ef5fe655, type: 3}
+    - {fileID: 2800000, guid: 6d8d52645a89554488f82e599052e6da, type: 3}
+    - {fileID: 2800000, guid: 7b7758186cd9d7a4791b73b74e28f59c, type: 3}
+    - {fileID: 2800000, guid: 03edd0ef6d466374888c6c35496e9580, type: 3}
+    - {fileID: 2800000, guid: c05b0d8459341de41817c23e0409a545, type: 3}
+    - {fileID: 2800000, guid: 6f5f9ce1bc72a634389bd449c0c32a28, type: 3}
+    - {fileID: 2800000, guid: d3c173c5dcf21b948bd48abe6111e7a2, type: 3}
+    - {fileID: 2800000, guid: 05b4529195e421b4294ddc1df6e17499, type: 3}
+    - {fileID: 2800000, guid: e5a1c42d957df914bb372bd6292b0249, type: 3}
+    - {fileID: 2800000, guid: f65b5493b19130e448f83c6f5f017a81, type: 3}
+    - {fileID: 2800000, guid: aef761261ff6c104789f79b02df0f417, type: 3}
+    - {fileID: 2800000, guid: bb647d30065a715449dcbdaf6c9d1b1a, type: 3}
+    - {fileID: 2800000, guid: 915938ba8b814284d8fc17822e22a360, type: 3}
+    - {fileID: 2800000, guid: 45c568bcd71a83c448b45af30e50d3e6, type: 3}
+    - {fileID: 2800000, guid: b3a933d4c880ffc44bac7d63c4d95dcc, type: 3}
+    - {fileID: 2800000, guid: a013046ebcfecb24880dcef1f52b2366, type: 3}
+    - {fileID: 2800000, guid: fc27765836bb8ce44863563077900fe7, type: 3}
+    - {fileID: 2800000, guid: 5dfa330182b70324a9d81cfbd871c3b8, type: 3}
+    - {fileID: 2800000, guid: a63cb1f121f8f24408f6f5cd5eef10bd, type: 3}
+    - {fileID: 2800000, guid: 8c1e0ff02ce701c4aaacf5f738ee448f, type: 3}
+    - {fileID: 2800000, guid: d7cef00a7590256449c63205bf95d027, type: 3}
+    - {fileID: 2800000, guid: 6a0c899d3d5372449bc1e844ca612724, type: 3}
+    - {fileID: 2800000, guid: 6fd20e5806db9204d80eaf32fffe12ae, type: 3}
+    - {fileID: 2800000, guid: a8011afa65731dc4fb14ba6a3bab8f78, type: 3}
+    - {fileID: 2800000, guid: 13656d6a28bfdf747afb4ad33fe8a1f0, type: 3}
+    - {fileID: 2800000, guid: 4c0d94d4b57de0a4995ce963eef42f5c, type: 3}
+    FrameDelay: 0.04
+  - PokemonName: 376
     Sprites:
     - {fileID: 2800000, guid: efbec3d3b3e80524fbd39cf88b12f78c, type: 3}
     - {fileID: 2800000, guid: fbbfa181e92c9654793073f6320d7234, type: 3}
