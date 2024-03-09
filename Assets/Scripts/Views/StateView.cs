@@ -9,6 +9,8 @@ public class StateView : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         _controller
             .OnGameStateChanged
             .Subscribe(LoadScene)
@@ -21,12 +23,26 @@ public class StateView : MonoBehaviour
         {
             case GameState.MainMenu:
                 if(!SceneManager.GetSceneByBuildIndex(0).IsValid())
+                {
+                    _controller.SetLoading(true);
                     SceneManager.LoadSceneAsync(0,LoadSceneMode.Single);
+                } 
                 return;
             case GameState.HiraganaMenu:
                 if(!SceneManager.GetSceneByBuildIndex(1).IsValid())
+                {
+                    _controller.SetLoading(true);
                     SceneManager.LoadSceneAsync(1,LoadSceneMode.Single);
+                }
+                    
                 return;
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _controller.SetLoading(false);
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
     }
 }

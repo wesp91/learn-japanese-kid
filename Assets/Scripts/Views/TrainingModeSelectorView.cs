@@ -13,7 +13,10 @@ public class TrainingModeSelectorView : MonoBehaviour
     {
             _hiraganaButton
                 .OnClickAsObservable()
-                .Subscribe(_ => _stateController.SetGameState(GameState.HiraganaMenu))
+                .Subscribe(_ => 
+                {
+                    _stateController.SetGameState(GameState.HiraganaMenu);
+                })
                 .AddTo(this);
     }
 }

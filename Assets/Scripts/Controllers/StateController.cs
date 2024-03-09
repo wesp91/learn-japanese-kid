@@ -6,11 +6,13 @@ public interface IStateController
     #region Actions
     void SetGameState(GameState state);
     void SetHiragana(HiraganaEnum value);
+    void SetLoading(bool isLoading);
     #endregion
 
     #region Observables
     Observable<GameState> OnGameStateChanged { get; }
     Observable<HiraganaEnum> OnSelectedHiraganaChanged { get; }
+    Observable<bool> OnLoadingStateChanged { get; }
     #endregion
 }
 
@@ -33,10 +35,16 @@ public class StateController : IStateController
     {
         _model.SetHiragana(value);
     }
+
+    public void SetLoading(bool isLoading)
+    {
+        _model.SetLoading(isLoading);
+    }
     #endregion
 
     #region Observables
     public Observable<GameState> OnGameStateChanged => _model.OnStateChanged;
     public Observable<HiraganaEnum> OnSelectedHiraganaChanged => _model.OnSelectedHiraganaChanged;
+    public Observable<bool> OnLoadingStateChanged => _model.OnLoadingStateChanged;
     #endregion
 }
