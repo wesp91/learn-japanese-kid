@@ -9,6 +9,8 @@ public class LineDrawer : MonoBehaviour
     // A reference to the current line game object.
     private GameObject _currentLine;
 
+    private List<GameObject> _drawnLines = new();
+
     // A reference to the LineRenderer component of the current line game object.
     private LineRenderer _lineRenderer;
 
@@ -99,13 +101,26 @@ public class LineDrawer : MonoBehaviour
         // Clear the touch positions list
         _touchPositions.Clear();
 
+        _drawnLines.Add(_currentLine);
+        _currentLine = null;
+
         // Destroy the current line after 2 seconds
-        Destroy(_currentLine, 2f);
+        //Destroy(_currentLine, 2f);
     }
 
     private bool CanCreateNewLine(Vector2 tempTouchPos)
     {
         // Check if the distance between the current touch position and the last touch position in the list is greater than the sensitivity threshold
         return Vector2.Distance(tempTouchPos, _touchPositions[_touchPositions.Count - 1]) > SensitivityThreshold;
+    }
+
+    public void ClearDrawnLines()
+    {
+        foreach(GameObject l in _drawnLines)
+        {
+            Destroy(l);
+        }
+
+        _drawnLines.Clear();
     }
 }

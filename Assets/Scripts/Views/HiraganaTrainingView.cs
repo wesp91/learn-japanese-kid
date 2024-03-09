@@ -23,10 +23,5 @@ public class HiraganaTrainingView : MonoBehaviour
                 _drawer.SetActive(isHiraganaState);
             })
             .AddTo(this);
-
-        _backToMainButton
-            .OnClickAsObservable()
-            .Subscribe(_ => _stateController.SetGameState(GameState.HiraganaMenu))
-            .AddTo(this);
     }
 }
