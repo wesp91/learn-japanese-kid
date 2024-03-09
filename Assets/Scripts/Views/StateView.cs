@@ -42,7 +42,5 @@ public class StateView : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _controller.SetLoading(false);
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
     }
 }
