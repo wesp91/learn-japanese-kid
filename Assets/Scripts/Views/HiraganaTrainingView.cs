@@ -9,7 +9,7 @@ public class HiraganaTrainingView : MonoBehaviour
 
 
     [SerializeField] private Canvas _mainCanvas;
-    [SerializeField] private GameObject _drawer;
+    [SerializeField] private LineDrawer _drawer;
     [SerializeField] private Button _backToMainButton;
 
     private void Start()
@@ -20,8 +20,14 @@ public class HiraganaTrainingView : MonoBehaviour
             .Subscribe(isHiraganaState => 
             {
                 _mainCanvas.enabled = isHiraganaState;
-                _drawer.SetActive(isHiraganaState);
+                _drawer.gameObject.SetActive(isHiraganaState);
             })
+            .AddTo(this);
+        
+        _stateController
+            .OnGameStateChanged
+            .Where(state => state == GameState.HiraganaDraw)
+            .Subscribe(x => _drawer.ClearDrawnLines())
             .AddTo(this);
     }
 }
