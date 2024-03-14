@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LineDrawer : MonoBehaviour
 {
     // A reference to the line prefab game object.
-    public GameObject linePrefab;
+    [SerializeField] private GameObject _linePrefab;
+
+    [SerializeField] private LayerMask _layerMask;
 
     // A reference to the current line game object.
     private GameObject _currentLine;
@@ -28,11 +31,25 @@ public class LineDrawer : MonoBehaviour
         // Check if mouse button 0 (left mouse button) is pressed down.
         if (Input.GetMouseButtonDown(0))
         {
-            // Call the HandleClickDown method.
-            HandleClickDown();
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+
+            // Set the position of the pointer event data to the current mouse position
+            pointerEventData.position = Input.mousePosition;
+
+            // Create a list to store raycast results
+            List<RaycastResult> hits = new List<RaycastResult>();
+
+            // Raycast against UI elements
+            EventSystem.current.RaycastAll(pointerEventData, hits);
+            
+            if (hits.Count > 0 && (_layerMask & (1 << hits[0].gameObject.layer)) != 0)
+            {
+                // Call the HandleClickDown method.
+                HandleClickDown();
+            }
         }
         // Check if mouse button 0 (left mouse button) is held down.
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) && _currentLine != null)
         {
             // Call the HandleMoving method.
             HandleMoving();
@@ -61,7 +78,8 @@ public class LineDrawer : MonoBehaviour
     private void HandleClickDown()
     {
         // Instantiate a new line game object using the line prefab.
-        _currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
+        _currentLine = Instantiate(_linePrefab, Vector3.zero, Quaternion.identity);
+        _drawnLines.Add(_currentLine);
 
         // Get the LineRenderer component of the current line game object.
         _lineRenderer = _currentLine.GetComponent<LineRenderer>();
@@ -101,11 +119,7 @@ public class LineDrawer : MonoBehaviour
         // Clear the touch positions list
         _touchPositions.Clear();
 
-        _drawnLines.Add(_currentLine);
         _currentLine = null;
-
-        // Destroy the current line after 2 seconds
-        //Destroy(_currentLine, 2f);
     }
 
     private bool CanCreateNewLine(Vector2 tempTouchPos)
