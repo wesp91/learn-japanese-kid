@@ -92,8 +92,11 @@ public class LineDrawer : MonoBehaviour
         _touchPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         // Set the start and end positions of the LineRenderer component.
+        _lineRenderer.positionCount++;
         _lineRenderer.SetPosition(0, _touchPositions[0]);
+        _lineRenderer.positionCount++;
         _lineRenderer.SetPosition(1, _touchPositions[1]);
+        
 
         // Set the points of the EdgeCollider2D component to the touch positions list.
         _edgeCollider.points = _touchPositions.ToArray();
