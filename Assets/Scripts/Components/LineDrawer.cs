@@ -31,35 +31,40 @@ public class LineDrawer : MonoBehaviour
         // Check if mouse button 0 (left mouse button) is pressed down.
         if (Input.GetMouseButtonDown(0))
         {
-            PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-
-            // Set the position of the pointer event data to the current mouse position
-            pointerEventData.position = Input.mousePosition;
-
-            // Create a list to store raycast results
-            List<RaycastResult> hits = new List<RaycastResult>();
-
-            // Raycast against UI elements
-            EventSystem.current.RaycastAll(pointerEventData, hits);
-            
-            if (hits.Count > 0 && (_layerMask & (1 << hits[0].gameObject.layer)) != 0)
+            if(CanDraw())
             {
                 // Call the HandleClickDown method.
                 HandleClickDown();
             }
         }
         // Check if mouse button 0 (left mouse button) is held down.
-        else if (Input.GetMouseButton(0) && _currentLine != null)
+        else if (Input.GetMouseButton(0) && _currentLine != null && CanDraw())
         {
             // Call the HandleMoving method.
             HandleMoving();
         }
         // Check if mouse button 0 (left mouse button) is released.
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) || !CanDraw())
         {
             // Call the HandleClickUp method.
             HandleClickUp();
         }
+    }
+
+    private bool CanDraw()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+
+        // Set the position of the pointer event data to the current mouse position
+        pointerEventData.position = Input.mousePosition;
+
+        // Create a list to store raycast results
+        List<RaycastResult> hits = new List<RaycastResult>();
+
+        // Raycast against UI elements
+        EventSystem.current.RaycastAll(pointerEventData, hits);
+        
+        return (hits.Count > 0) && ((_layerMask & (1 << hits[0].gameObject.layer)) != 0);
     }
 
     private void HandleMoving()
