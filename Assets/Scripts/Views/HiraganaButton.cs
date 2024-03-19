@@ -33,7 +33,7 @@ public class HiraganaButton : MonoBehaviour
         
         if(_rect != null && _gif != null && _gif.Sprites != null && _gif.Sprites.Count > 0)
         {
-            _rect.anchoredPosition += PokemonHelper.GetOffset(_pokemon);
+            _rect.anchoredPosition += PokemonHelper.GetHiraganaMenuOffset(_pokemon);
             _rect.sizeDelta = new Vector2(_gif.Sprites[0].width, _gif.Sprites[0].height) * 1.2f;
 
             Observable
