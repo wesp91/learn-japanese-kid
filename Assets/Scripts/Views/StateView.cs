@@ -34,7 +34,13 @@ public class StateView : MonoBehaviour
                     _controller.SetLoading(true);
                     SceneManager.LoadSceneAsync(1,LoadSceneMode.Single);
                 }
-                    
+                return;
+            case GameState.WordMaker:
+                if(!SceneManager.GetSceneByBuildIndex(2).IsValid())
+                {
+                    _controller.SetLoading(true);
+                    SceneManager.LoadSceneAsync(2,LoadSceneMode.Single);
+                }
                 return;
         }
     }
