@@ -108,20 +108,54 @@ public enum Pokemon
     Cubone = 104, //
     Marowak = 105, //
     Hitmonlee = 106,
-    
+    Hitmonchan = 107, //
+    Lickitung = 108, //
+    Koffing = 109, //
+    Weezing = 110, //
+    Rhyhorn = 111, //
+    Rhydon = 112, //
+    Chansey = 113, //
     Tangela = 114,
+    Kangaskhan = 115, //
+    Horsea = 116, //
+    Seadra = 117, //
     Goldeen = 118,
+    Seaking = 119, //
     Staryu = 120,
     Starmie = 121,
+    MrMime = 122, //
+    Scyther = 123, //
     Jynx = 124,
     Electabuzz = 125,
+    Magmar = 126, //
+    Pinsir = 127, //
+    Tauros = 128, //
+    Magikarp = 129, //
+    Gyarados = 130, //
+    Lapras = 131, //
     Ditto = 132,
     Eevee = 133,
     Vaporeon = 134,
+    Jolteon = 135, //
+    Flareon = 136, //
+    Porygon = 137, //
+    Omanyte = 138, //
     Omastar = 139,
+    Kabuto = 140, //
+    Kabutops = 141, //
+    Aerodactyl = 142, //
+    Snorlax = 143, //
+    Articuno = 144, //
+    Zapdos = 145, //
+    Moltres = 146, //
     Dratini = 147,
     Dragonair = 148,
     Dragonite = 149,
+    Mewtwo = 150, //
+    Mew = 151, //
+    
+    
+    // Gen 2
     Chikorita = 152,
     Quagsire = 195,
     Unown = 201,
