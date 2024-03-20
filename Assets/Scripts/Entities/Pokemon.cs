@@ -2,8 +2,12 @@ using UnityEngine;
 
 public enum Pokemon 
 {
+    Bulbasaur = 1, //
+    Ivysaur = 2, //
     Venusaur = 3,
-    Charizard = 9,
+    Charmander = 4, //
+    Charmeleon = 5, //
+    Charizard = 6,
     Caterpie = 10,
     Arbok = 24,
     Raichu = 26,
