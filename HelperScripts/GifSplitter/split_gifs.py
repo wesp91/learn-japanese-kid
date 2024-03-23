@@ -1,5 +1,6 @@
 from PIL import Image
 import os
+import json
 
 def folder_exists(folder_path):
     return os.path.exists(folder_path)
@@ -58,6 +59,15 @@ def split_gif(gif_path, output_folder):
 
     # Close the GIF file
     gif.close()
+
+    # generate options file
+    data = {
+        "frame_delay": refresh_rate
+    }
+
+    json_path = f"{frames_folder}/options.json"
+    with open(json_path, "w") as json_file:
+        json.dump(data, json_file, indent=4, sort_keys=True)
 
     print(f"Extracted {gif_path}")
 
