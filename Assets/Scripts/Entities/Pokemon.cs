@@ -94,7 +94,7 @@ public enum Pokemon
     Shellder = 90, //
     Cloyster = 91, //
     Gastly = 92, //
-    Hunter = 93, //
+    Haunter = 93, //
     Gengar = 94, //
     Onix = 95, //
     Drowzee = 96, //
@@ -164,15 +164,20 @@ public enum Pokemon
     Heracross = 214,
     Smoochum = 238,
     Celebi = 251,
+
+    // Gen 3
     Nosepass = 299,
     Wailmer = 320,
     Duskull = 355,
     Metagross = 376,
     Rayquaza = 384,
+
+    // Gen 
     Braixen = 654,
     Coalossal = 839,
     Sirfetchd = 865,
 
+    // Extra
     Unown_A = 1001,
     Unown_Interrogation = 1028,
 }
